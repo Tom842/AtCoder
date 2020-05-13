@@ -8,29 +8,31 @@ namespace AtCoder.Abc
 {
     class QuestionC
     {
+
+        /// <summary>
+        /// ABC081A - Placing Marbles
+        /// https://atcoder.jp/contests/abs/tasks/abc081_a
+        /// </summary>
         public static void Main(string[] args)
         {
             var sw = new System.IO.StreamWriter(Console.OpenStandardOutput()) { AutoFlush = false };
             Console.SetOut(sw);
 
             // 文字列の入力
-            string s = Console.ReadLine();
+            string str_s = Console.ReadLine();
 
-            // 整数の入力
-            long n = long.Parse(Console.ReadLine());
+            char[] str_S = str_s.ToCharArray();
 
-            // 文字列配列の入力
-            string[] inputStrArray = Console.ReadLine().Split(' ');
+            int num_count = 0;
+            foreach (char SS in str_S)
+            {
+                if (SS=='1')
+                {
+                    num_count++;
+                }
+            }
 
-            // 整数配列の入力
-            var inputLongArray = Console.ReadLine().Split(' ').Select(i => long.Parse(i)).ToArray();
-
-
-
-
-            string result = "";
-
-            Console.WriteLine(result);
+            Console.WriteLine(num_count);
 
             Console.Out.Flush();
         }

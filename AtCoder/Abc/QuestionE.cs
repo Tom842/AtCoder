@@ -8,31 +8,70 @@ namespace AtCoder.Abc
 {
     class QuestionE
     {
+
+        /// <summary>
+        /// ABC087B - Coins
+        /// https://atcoder.jp/contests/abs/tasks/abc087_b
+        /// </summary>
+     
         public static void Main(string[] args)
         {
             var sw = new System.IO.StreamWriter(Console.OpenStandardOutput()) { AutoFlush = false };
             Console.SetOut(sw);
 
-            // 文字列の入力
-            string s = Console.ReadLine();
-
             // 整数の入力
-            long n = long.Parse(Console.ReadLine());
+            int num_A = int.Parse(Console.ReadLine()); //A
+            int num_B = int.Parse(Console.ReadLine()); //B 100Yen
+            int num_C = int.Parse(Console.ReadLine()); //C 50Yen
 
-            // 文字列配列の入力
-            string[] inputStrArray = Console.ReadLine().Split(' ');
+            int num_X = int.Parse(Console.ReadLine()); //X Sum
 
-            // 整数配列の入力
-            var inputLongArray = Console.ReadLine().Split(' ').Select(i => long.Parse(i)).ToArray();
+            int num_Return = 0;
 
+            if(num_X <= 50)
+            {
+                num_Return = Sum_check(0, 0, num_C, num_X);
+            } 
+            else if(num_X <= 100)
+            {
+                num_Return = Sum_check(0, num_B, num_C, num_X);
+            }
+            else
+            {
+                num_Return = Sum_check(num_A, num_B, num_C, num_X);
+            }
 
-
-
-            string result = "";
-
-            Console.WriteLine(result);
+            Console.WriteLine(num_Return);
 
             Console.Out.Flush();
         }
+
+        public static int Sum_check(int A, int B, int C, int X)
+        {
+            int num_Counter = 0;    //答えが一致した数
+            int num_Sum = 0;        //答え格納用
+
+            for (int inumA = 0; inumA <= A; inumA++)
+            {
+                for (int inumB = 0; inumB <= B; inumB++)
+                {
+                    for (int inumC = 0; inumC <= C; inumC++)
+                    {
+                        num_Sum = 500 * inumA + 100 * inumB + 50 * inumC;
+
+                        if (num_Sum == X)
+                        {
+                            num_Counter++;
+                        }
+                    }
+                }
+
+            }
+
+            return num_Counter;
+        }
     }
+
+
+   
 }

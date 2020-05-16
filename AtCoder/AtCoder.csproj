@@ -53,6 +53,7 @@
     <Compile Include="Abc\QuestionC.cs" />
     <Compile Include="Abc\QuestionD.cs" />
     <Compile Include="Abc\QuestionE.cs" />
+    <Compile Include="Abc\QuestionI.cs" />
     <Compile Include="Abc\QuestionH.cs" />
     <Compile Include="Abc\QuestionG.cs" />
     <Compile Include="Abc\QuestionF.cs" />

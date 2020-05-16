@@ -8,29 +8,33 @@ namespace AtCoder.Abc
 {
     class QuestionH
     {
+        /// <summary>
+        /// ABC085B - Kagami Mochi
+        /// https://atcoder.jp/contests/abs/tasks/abc085_b
+        /// </summary>
         public static void Main(string[] args)
         {
+            
             var sw = new System.IO.StreamWriter(Console.OpenStandardOutput()) { AutoFlush = false };
             Console.SetOut(sw);
 
-            // 文字列の入力
-            string s = Console.ReadLine();
-
             // 整数の入力
-            long n = long.Parse(Console.ReadLine());
+            int num_N = int.Parse(Console.ReadLine());
 
-            // 文字列配列の入力
-            string[] inputStrArray = Console.ReadLine().Split(' ');
+            //餅の直径を入力
+            int[] num_D = new int[num_N];
 
-            // 整数配列の入力
-            var inputLongArray = Console.ReadLine().Split(' ').Select(i => long.Parse(i)).ToArray();
+            for (int inumA = 0; inumA < num_N; inumA++)
+            {
+                num_D[inumA] = int.Parse (Console.ReadLine());
+            }
 
+            //入力された直径から重複削除して、昇順にならべかえる
+            var num_List = new List<int>(num_D).Distinct().OrderBy(x => x).ToArray();
 
+            int num_Count = num_List.Length;
 
-
-            string result = "";
-
-            Console.WriteLine(result);
+            Console.WriteLine(num_Count);
 
             Console.Out.Flush();
         }

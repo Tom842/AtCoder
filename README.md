@@ -1,3 +1,3 @@
-# AtCoder
+# AtCoder Beginner Contest 168
 
-AtCoder の実装・テストプロジェクトのテンプレート
+AtCoder Beginner Contest 168

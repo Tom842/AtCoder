@@ -13,24 +13,32 @@ namespace AtCoder.Abc
             var sw = new System.IO.StreamWriter(Console.OpenStandardOutput()) { AutoFlush = false };
             Console.SetOut(sw);
 
-            // 文字列の入力
-            string s = Console.ReadLine();
-
-            // 整数の入力
-            long n = long.Parse(Console.ReadLine());
-
-            // 文字列配列の入力
-            string[] inputStrArray = Console.ReadLine().Split(' ');
-
             // 整数配列の入力
-            var inputLongArray = Console.ReadLine().Split(' ').Select(i => long.Parse(i)).ToArray();
+            var num_N = Console.ReadLine().Split(' ').Select(i => long.Parse(i)).ToArray();
 
+            //num_N[0]  時針の長さ
+            //num_N[1]  分針の長さ
+            //num_N[2]  時間
+            //num_N[3]  分
 
+            //時針の角度
+            //[rad] = 度 * π/180
+            //30°*　時間　＝分針が0のときの時針の位置
 
+            var num_H = (30 * num_N[2] + 0.5 * num_N[3]) * Math.PI / 180;
 
-            string result = "";
+            //分針の角度
+            var num_M = (6 * num_N[3]) * Math.PI / 180;
 
-            Console.WriteLine(result);
+            var num_HM = num_H - num_M;
+
+            //時針と分針の角度差が180°(π[rad])より大きい場合の処理
+            if (num_HM > Math.PI) num_HM = (2 * Math.PI) - num_HM;
+
+            //余弦の定理
+            var num_AA = Math.Sqrt(Math.Pow(num_N[0], 2) + Math.Pow(num_N[1], 2) - 2 * num_N[0] * num_N[1] * Math.Cos(num_HM));
+
+            Console.WriteLine(num_AA);
 
             Console.Out.Flush();
         }

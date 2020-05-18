@@ -8,31 +8,35 @@ namespace AtCoder.Abc
 {
     class QuestionB
     {
+        /// <summary>
+        /// https://atcoder.jp/contests/abc168/tasks/abc168_b
+        /// </summary>
         public static void Main(string[] args)
         {
             var sw = new System.IO.StreamWriter(Console.OpenStandardOutput()) { AutoFlush = false };
             Console.SetOut(sw);
 
-            // 文字列の入力
-            string s = Console.ReadLine();
-
             // 整数の入力
-            long n = long.Parse(Console.ReadLine());
+            int num_K = int.Parse(Console.ReadLine());
 
-            // 文字列配列の入力
-            string[] inputStrArray = Console.ReadLine().Split(' ');
+            // 文字列の入力
+            string str_S = Console.ReadLine();
+            
+            int num_Length = str_S.Length;
 
-            // 整数配列の入力
-            var inputLongArray = Console.ReadLine().Split(' ').Select(i => long.Parse(i)).ToArray();
-
-
-
-
-            string result = "";
-
-            Console.WriteLine(result);
-
+            if (num_Length <= num_K)
+            {
+                Console.WriteLine(str_S);
+            }
+            else if(num_Length > num_K)
+            {
+                string str_SS = str_S.Substring(0, num_K) + "...";
+                Console.WriteLine(str_SS);
+                
+            }
+            
             Console.Out.Flush();
+
         }
     }
 }

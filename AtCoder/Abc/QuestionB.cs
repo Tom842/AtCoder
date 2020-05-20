@@ -21,23 +21,24 @@ namespace AtCoder.Abc
 
             // 文字列配列の入力
             int[] str_ABCK = Console.ReadLine().Split(' ').Select(i => int.Parse(i)).ToArray();
-
-            //マイナスカードの枚数
-            int num_Minus = str_ABCK[3] - (str_ABCK[0] + str_ABCK[1]);
-
+                        
             int result = 0;
 
             if (str_ABCK[3] <= str_ABCK[0])   //引く枚数がＡより少ないときは引く枚数が答え
             {
                 result = str_ABCK[3];
             }
-            else if (str_ABCK[3] <= str_ABCK[0] + str_ABCK[1]) 
+            else if (str_ABCK[3] <= str_ABCK[0] + str_ABCK[1])
             {
                 result = str_ABCK[0];
             }
-            else result = str_ABCK[0] - num_Minus;
-
-
+            else
+            {
+                //マイナスカードの枚数
+                int num_Minus = str_ABCK[3] - (str_ABCK[0] + str_ABCK[1]);
+                result = str_ABCK[0] - num_Minus;
+            }
+            
             Console.WriteLine(result);
 
             Console.Out.Flush();

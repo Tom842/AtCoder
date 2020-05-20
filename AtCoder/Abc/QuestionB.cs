@@ -8,27 +8,35 @@ namespace AtCoder.Abc
 {
     class QuestionB
     {
+        /// <summary>
+        /// B - Easy Linear Programming
+        /// https://atcoder.jp/contests/abc167/tasks/abc167_b
+        /// </summary>
+        /// <param name="args"></param>
+
         public static void Main(string[] args)
         {
             var sw = new System.IO.StreamWriter(Console.OpenStandardOutput()) { AutoFlush = false };
             Console.SetOut(sw);
 
-            // 文字列の入力
-            string s = Console.ReadLine();
-
-            // 整数の入力
-            long n = long.Parse(Console.ReadLine());
-
             // 文字列配列の入力
-            string[] inputStrArray = Console.ReadLine().Split(' ');
+            int[] str_ABCK = Console.ReadLine().Split(' ').Select(i => int.Parse(i)).ToArray();
 
-            // 整数配列の入力
-            var inputLongArray = Console.ReadLine().Split(' ').Select(i => long.Parse(i)).ToArray();
+            //マイナスカードの枚数
+            int num_Minus = str_ABCK[3] - (str_ABCK[0] + str_ABCK[1]);
 
+            int result = 0;
 
+            if (str_ABCK[3] <= str_ABCK[0])   //引く枚数がＡより少ないときは引く枚数が答え
+            {
+                result = str_ABCK[3];
+            }
+            else if (str_ABCK[3] <= str_ABCK[0] + str_ABCK[1]) 
+            {
+                result = str_ABCK[0];
+            }
+            else result = str_ABCK[0] - num_Minus;
 
-
-            string result = "";
 
             Console.WriteLine(result);
 

@@ -8,29 +8,48 @@ namespace AtCoder.Abc
 {
     class QuestionC
     {
+
+        /// <summary>
+        /// ABC 166
+        /// B - Trick or Treat
+        /// https://atcoder.jp/contests/abc166/tasks/abc166_b
+        /// </summary>
+        
         public static void Main(string[] args)
         {
             var sw = new System.IO.StreamWriter(Console.OpenStandardOutput()) { AutoFlush = false };
             Console.SetOut(sw);
 
-            // 文字列の入力
-            string s = Console.ReadLine();
-
-            // 整数の入力
-            long n = long.Parse(Console.ReadLine());
-
-            // 文字列配列の入力
-            string[] inputStrArray = Console.ReadLine().Split(' ');
-
             // 整数配列の入力
-            var inputLongArray = Console.ReadLine().Split(' ').Select(i => long.Parse(i)).ToArray();
+            var num_NK = Console.ReadLine().Split(' ').Select(i => int.Parse(i)).ToArray();
 
+            //人数分の配列を用意
+            var A = new int[num_NK[0]];
 
+            //お菓子の種類分入力
+            for (int inumA = 0; inumA < num_NK[1]; inumA++)
+            {
+                var J = int.Parse(Console.ReadLine());  //持っている人数
 
+                var AI = Console.ReadLine().Split(' ').Select(i => int.Parse(i)).ToArray();　//持っているすぬけ君[i]
 
-            string result = "";
+                for(int inumB = 0; inumB < J; inumB++)
+                {
+                    var N = AI[inumB]-1;
+
+                    A[N]++;
+                }
+            }
+
+            int result = 0;
+
+            foreach(int C in A)
+            {
+                if (C == 0) result++;
+            }
 
             Console.WriteLine(result);
+
 
             Console.Out.Flush();
         }

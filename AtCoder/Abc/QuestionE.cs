@@ -8,29 +8,34 @@ namespace AtCoder.Abc
 {
     class QuestionE
     {
+        /// <summary>
+        /// B - Battle
+        /// https://atcoder.jp/contests/abc164/tasks/abc164_b
+        /// </summary>
+      
         public static void Main(string[] args)
         {
             var sw = new System.IO.StreamWriter(Console.OpenStandardOutput()) { AutoFlush = false };
             Console.SetOut(sw);
 
-            // 文字列の入力
-            string s = Console.ReadLine();
-
-            // 整数の入力
-            long n = long.Parse(Console.ReadLine());
-
-            // 文字列配列の入力
-            string[] inputStrArray = Console.ReadLine().Split(' ');
-
             // 整数配列の入力
-            var inputLongArray = Console.ReadLine().Split(' ').Select(i => long.Parse(i)).ToArray();
+            var num_ABCD = Console.ReadLine().Split(' ').Select(i => int.Parse(i)).ToArray();
 
+            do
+            {
+                num_ABCD[2] = num_ABCD[2] - num_ABCD[1];
+                num_ABCD[0] = num_ABCD[0] - num_ABCD[3];
 
+            } while (num_ABCD[0] > 0 & num_ABCD[2] > 0);
 
-
-            string result = "";
-
-            Console.WriteLine(result);
+            if (num_ABCD[2] <= 0) //高橋の勝ち
+            {
+                Console.WriteLine("Yes");
+            }
+            else if (num_ABCD[0] <= 0)　//青木の勝ち
+            {
+                Console.WriteLine("No");
+            }
 
             Console.Out.Flush();
         }

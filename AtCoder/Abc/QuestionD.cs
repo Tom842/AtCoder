@@ -8,29 +8,30 @@ namespace AtCoder.Abc
 {
     class QuestionD
     {
+
+        /// <summary>
+        /// B - 1%
+        /// https://atcoder.jp/contests/abc165/tasks/abc165_b
+        /// </summary>
         public static void Main(string[] args)
         {
             var sw = new System.IO.StreamWriter(Console.OpenStandardOutput()) { AutoFlush = false };
             Console.SetOut(sw);
 
-            // 文字列の入力
-            string s = Console.ReadLine();
-
             // 整数の入力
-            long n = long.Parse(Console.ReadLine());
+            long num_X = long.Parse(Console.ReadLine());
 
-            // 文字列配列の入力
-            string[] inputStrArray = Console.ReadLine().Split(' ');
+            long num_Sum = 100; //残高
 
-            // 整数配列の入力
-            var inputLongArray = Console.ReadLine().Split(' ').Select(i => long.Parse(i)).ToArray();
+            int num_N = 0;
 
+            while (num_Sum < num_X)
+            {
+                num_Sum += num_Sum / 100;
+                num_N++;
+            } 
 
-
-
-            string result = "";
-
-            Console.WriteLine(result);
+            Console.WriteLine(num_N);
 
             Console.Out.Flush();
         }

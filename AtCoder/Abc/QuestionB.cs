@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,29 +9,43 @@ namespace AtCoder.Abc
 {
     class QuestionB
     {
+        //https://atcoder.jp/contests/abc169/tasks/abc169_b
         public static void Main(string[] args)
         {
             var sw = new System.IO.StreamWriter(Console.OpenStandardOutput()) { AutoFlush = false };
             Console.SetOut(sw);
 
-            // 文字列の入力
-            string s = Console.ReadLine();
-
             // 整数の入力
             long n = long.Parse(Console.ReadLine());
 
-            // 文字列配列の入力
-            string[] inputStrArray = Console.ReadLine().Split(' ');
-
             // 整数配列の入力
-            var inputLongArray = Console.ReadLine().Split(' ').Select(i => long.Parse(i)).ToArray();
+            var num_AN = Console.ReadLine().Split(' ').Select(i => long.Parse(i)).ToArray();
+            
+            long result = 1;
 
+            var limit = (long)Math.Pow(10, 18);
 
+            foreach(long c in num_AN)
+            {
+                if (c == 0) //0の場合は計算終了
+                {
+                    result = 0;
+                    break;
+                }
 
+                if (c <= limit / result)
+                {
+                    result *= c;
+                }
+                else
+                {
+                    result = -1;
+                }
 
-            string result = "";
+            }
 
             Console.WriteLine(result);
+            
 
             Console.Out.Flush();
         }

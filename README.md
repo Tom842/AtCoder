@@ -1,3 +1,3 @@
-# AtCoder
+# AtCoder Problems
 
-AtCoder の実装・テストプロジェクトのテンプレート
+AtCoder Problems 練習用

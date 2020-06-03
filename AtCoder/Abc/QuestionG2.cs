@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AtCoder.Abc
 {
-    class QuestionG
+    class QuestionG2
     {
         /// <summary>
         /// B - FizzBuzz Sum
@@ -20,22 +20,17 @@ namespace AtCoder.Abc
             // 整数の入力
             int num_N = int.Parse(Console.ReadLine());
 
-            var num_Sumlist = new List<long>();
-
-            for (int inumA = 1; inumA <= num_N; inumA++)
-            {
-                if (inumA % 3 != 0 & inumA % 5 != 0)
-                {
-                    num_Sumlist.Add(inumA);
-                }
-
-            }
-
-            var num_Sum = num_Sumlist.Sum();
+            var num_Sum = Sum(num_N) - Sum(num_N / 3) * 3 - Sum(num_N / 5) * 5 + Sum(num_N / 15) * 15;
 
             Console.WriteLine(num_Sum);
 
             Console.Out.Flush();
+        }
+
+        public static long Sum(long N)  //1からNまでを順番に足した和を求める式
+        {
+            long NN = N * (N + 1) / 2;
+            return NN;
         }
     }
 }

@@ -21,7 +21,7 @@ namespace AtCoder
 
         private static void Exec(string[] args)
         {
-            QuestionG2
+            QuestionH
                 .Main(args);
         }
 

@@ -8,29 +8,32 @@ namespace AtCoder.Abc
 {
     class QuestionH
     {
+        /// <summary>
+        /// B - Popular Vote
+        /// https://atcoder.jp/contests/abc161/tasks/abc161_b
+        /// </summary>
         public static void Main(string[] args)
         {
             var sw = new System.IO.StreamWriter(Console.OpenStandardOutput()) { AutoFlush = false };
             Console.SetOut(sw);
 
-            // 文字列の入力
-            string s = Console.ReadLine();
-
-            // 整数の入力
-            long n = long.Parse(Console.ReadLine());
-
-            // 文字列配列の入力
-            string[] inputStrArray = Console.ReadLine().Split(' ');
+            // 整数配列の入力
+            var num_NM= Console.ReadLine().Split(' ').Select(i => int.Parse(i)).ToArray();
 
             // 整数配列の入力
-            var inputLongArray = Console.ReadLine().Split(' ').Select(i => long.Parse(i)).ToArray();
+            var num_A = Console.ReadLine().Split(' ').Select(i => int.Parse(i));
 
+            //総得票数
+            double num_SumA = num_A.Sum();
 
+            var num_M = num_NM[1];
 
+            var num_Limit = num_SumA / (4 * num_M);
 
-            string result = "";
+            var num_Count = num_A.Count(a => a >= num_Limit);
 
-            Console.WriteLine(result);
+            if (num_Count >= num_M) Console.WriteLine("Yes");
+            else Console.WriteLine("No");
 
             Console.Out.Flush();
         }

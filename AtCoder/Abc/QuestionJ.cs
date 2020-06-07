@@ -8,29 +8,30 @@ namespace AtCoder.Abc
 {
     class QuestionJ
     {
-        public static void Main(string[] args)
+        /// <summary>
+        /// B - String Palindrome
+        /// https://atcoder.jp/contests/abc159/tasks/abc159_b
+        /// </summary>
+         public static void Main(string[] args)
         {
             var sw = new System.IO.StreamWriter(Console.OpenStandardOutput()) { AutoFlush = false };
             Console.SetOut(sw);
 
             // 文字列の入力
-            string s = Console.ReadLine();
+            string str_S = Console.ReadLine();
 
-            // 整数の入力
-            long n = long.Parse(Console.ReadLine());
+            var num_Length = str_S.Length;
 
-            // 文字列配列の入力
-            string[] inputStrArray = Console.ReadLine().Split(' ');
+            var num_End = (num_Length - 1) / 2;
+            var num_Start = (num_Length + 3) / 2;
 
-            // 整数配列の入力
-            var inputLongArray = Console.ReadLine().Split(' ').Select(i => long.Parse(i)).ToArray();
+            var str_New01 = str_S.Substring(0, num_End);
 
-
+            var str_New02 = str_S.Substring(num_Start - 1);
 
 
-            string result = "";
-
-            Console.WriteLine(result);
+            if (str_New01 == str_New02) Console.WriteLine("Yes");
+            else Console.WriteLine("No");
 
             Console.Out.Flush();
         }

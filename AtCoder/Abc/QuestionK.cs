@@ -8,29 +8,35 @@ namespace AtCoder.Abc
 {
     class QuestionK
     {
+        /// <summary>
+        /// B - Count Balls
+        /// https://atcoder.jp/contests/abc158/tasks/abc158_b
+        /// </summary>
         public static void Main(string[] args)
         {
             var sw = new System.IO.StreamWriter(Console.OpenStandardOutput()) { AutoFlush = false };
             Console.SetOut(sw);
 
-            // 文字列の入力
-            string s = Console.ReadLine();
-
-            // 整数の入力
-            long n = long.Parse(Console.ReadLine());
-
-            // 文字列配列の入力
-            string[] inputStrArray = Console.ReadLine().Split(' ');
-
             // 整数配列の入力
-            var inputLongArray = Console.ReadLine().Split(' ').Select(i => long.Parse(i)).ToArray();
+            var num_Array = Console.ReadLine().Split(' ').Select(i => long.Parse(i)).ToArray();
 
+            var num_Unit = num_Array[1] + num_Array[2];
 
+            var num_Set = num_Array[0] / num_Unit;
+            var num_SP = num_Array[0] % num_Unit;
 
+            long num_Blue = 0;
 
-            string result = "";
+            if (num_SP >= num_Array[1])
+            {
+                num_Blue = num_Set * num_Array[1] + num_Array[1];
+            }
+            else if (num_SP < num_Array[1])
+            {
+                num_Blue = num_Set * num_Array[1] + num_SP;
+            }
 
-            Console.WriteLine(result);
+            Console.WriteLine(num_Blue);
 
             Console.Out.Flush();
         }

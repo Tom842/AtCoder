@@ -17,21 +17,9 @@ namespace AtCoder.Abc
             // 文字列の入力
             string s = Console.ReadLine();
 
-            // 整数の入力
-            long n = long.Parse(Console.ReadLine());
+            string str_Nickname = s.Substring(0, 3);
 
-            // 文字列配列の入力
-            string[] inputStrArray = Console.ReadLine().Split(' ');
-
-            // 整数配列の入力
-            var inputLongArray = Console.ReadLine().Split(' ').Select(i => long.Parse(i)).ToArray();
-
-
-
-
-            string result = "";
-
-            Console.WriteLine(result);
+            Console.WriteLine(str_Nickname);
 
             Console.Out.Flush();
         }

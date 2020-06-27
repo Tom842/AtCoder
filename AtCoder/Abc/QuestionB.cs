@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,23 +15,27 @@ namespace AtCoder.Abc
             Console.SetOut(sw);
 
             // 文字列の入力
-            string s = Console.ReadLine();
+            string S = Console.ReadLine();
 
-            // 整数の入力
-            long n = long.Parse(Console.ReadLine());
+            string T = Console.ReadLine();
 
-            // 文字列配列の入力
-            string[] inputStrArray = Console.ReadLine().Split(' ');
+            var Len = S.Length;
+            var Count = 0;
+            
+            for(int inumA = 0; inumA < Len; inumA++)
+            {
+                var ST = S.Substring(inumA, 1);
+                var TT = T.Substring(inumA, 1);
 
-            // 整数配列の入力
-            var inputLongArray = Console.ReadLine().Split(' ').Select(i => long.Parse(i)).ToArray();
+                if (ST != TT)
+                {
+                    Count++;
+                }
 
 
+            }
 
-
-            string result = "";
-
-            Console.WriteLine(result);
+            Console.WriteLine(Count);
 
             Console.Out.Flush();
         }
